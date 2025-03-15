@@ -1,124 +1,40 @@
-<script>
-    let humanScore = 0
-    let computerScore = 0
-    let roundCount = 0
-    /* const rock = 0
-    const paper = 1
-    const scissors = 2
-    var  */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rock-paper-scissors-game</title>
+   
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <main>
+        <h1>Rock Paper Scissors</h1>
+        <div id="score-container">
+            <div class="score-item">
+                <p id="human-score">Your score</p>
+                <p id="human-score-counter">0</p>
+            </div>
+            <div class="score-item">
+                <p id="computer-score">Opponent Score</p>
+                <p id="computer-score-counter">0</p>
+            </div>
 
-    // Rock Paper Scissors game
-
-
-    /* get input from computerPlayer */
-      let getComputerInput = () => 
-          Math.floor(Math.random()* 3)
-      
-    /* get input from humanPlayer */
-      let getPlayerInput = () => 
-            prompt("Choose: Rock, Paper or Scissors ").toLowerCase();
-      
-    /* translate human input into game logic */
-    let inputToNum = (input) => {
-        
-        switch (input) {
-            case "rock":
-                return 0;
-                break;
-            case "paper":
-                return 1;
-                break;
-            case "scissors":
-                return 2;
-                break;
-            default:
-                console.log("Invalid input");
-        }
-
-    }
-        
-
-        
-    /* make game logic to decide winner */
-    let winOrLose = (input1, input2) => {
-        if (!(input1 == input2)){
-            switch (input1) {
-                case 0:
-                    if(input2 == 2){
-                        humanScore ++;
-                        console.log("You played ROCK, your opponent played SCISSORS. You WIN!")
-                    }
-                    else{
-                        computerScore ++;
-                        console.log("You played ROCK, your opponent played PAPER. You LOSE!")
-                    }
-                    break;
-                case 1:
-                    if(input2 == 0){
-                        humanScore ++;
-                        console.log("You played PAPER, your opponent played ROCK. You WIN! ")
-                    }
-                    else{
-                        computerScore ++;
-                        console.log("You played PAPER, your opponent played SCISSORS. You LOSE!")
-                    }
-                    break;
-                case 2:
-                    if(input2 == 1){
-                        humanScore ++;
-                        console.log("You played SCISSORS, your opponent played PAPER. You WIN! ")
-                    }
-                    else{
-                        computerScore ++;
-                        console.log("You played SCISSORS, your opponent played ROCK. You LOSE!")
-                    }
-                    break;
-                  }
-              }
-
-        else {
-            console.log("Same Pick");
-        }
-      }
-      let update = () => {
-
-        roundCount++
-        console.log("---------" + "Round: " + roundCount + "---------")
-        console.log("Your score: " + humanScore)
-        console.log("Opponent score: " + computerScore)
-
-      }
-
-    /* make game engine with 5 round LOOP */
-      let runGame = () => {
-        
-          
-          for (let i = 0; i < 5; i++) {
-
-              let playerInput = inputToNum(getPlayerInput())
-              let computerInput = getComputerInput()
-              winOrLose(playerInput, computerInput)
-              update()
-            
-            
-            
-
-
-            
-
-
-          }
-      }
+        </div>
+        <div id="display">
+            <p id="para">Click the button to start a new Game!</p>
+        </div>
+        <div class="btn-container">    
+            <button value="rock" type="button" id="btn-rock">Rock</button>
+            <button value="paper" type="button" id="btn-paper">Paper</button>
+            <button value="scissors" type="button" id="btn-scissors">Scissors</button>
+            </div>
+            <div class="test"></div>
+    </main>
     
-
     
-    /* game over declare winner -> reset?  */
-      
+    
+<script src="./js-script.js" defer></script> 
+</body>
 
-
-
-  runGame()
-      
-      
-      
-</script>
+</html>
