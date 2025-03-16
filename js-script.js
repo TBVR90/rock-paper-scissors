@@ -15,9 +15,33 @@ const buttons = document.querySelectorAll("button")
 let humanScore = 0;
 let computerScore = 0;
 
-buttons.forEach(el => el.addEventListener("click", () => {
-    console.log("clicked")
+
+
+
+
+buttons.forEach(el => el.addEventListener("click", (e) => {
+    let computerInput = getComputerInput();
+    let playerInput = el.textContent.toLowerCase();
+    console.log(computerInput)
+    console.log(playerInput)
+    playRound(playerInput, computerInput);
+    
 }))
+
+function getComputerInput() {
+
+    switch (Math.floor(Math.random() * 3)) {
+        case 0:
+            return "rock";
+        case 1:
+            return "paper";
+
+        case 2:
+            return "scissors";
+
+
+    };
+}
 
 
 
@@ -29,60 +53,62 @@ btnPaper.addEventListener("click", () =>{
     btnPaper.innerText = "Paper";
     btnScissors.style.visibility = "visible";
     btnRock.style.visibility = "visible";
-    para.innerText = "";
+    para.innerText = "Pick: Rock, Paper or Scissors";
     scoreContainer.style.visibility = "visible"
    
     
-    playRound()}, {once: true})
+    }, {once: true})
 
 const updateScore = () => {
     humanScoreCounter.textContent = humanScore;
     computerScoreCounter.textContent = computerScore;
 }
 
-const playRound = () => {
-    let computerInput = getComputerInput();
-    para.innerText = ""
-    
-}
+const playRound = (playerInput, computerInput) => {
 
-const getComputerInput = () =>{
-     
-    switch (Math.floor(Math.random()* 3))  {
-        case 0:
-            return "rock";
-            break;
-        case 1:
-            return "paper";
-            break;
-        case 2:
-            return "scissors";
-            break;
+    while (humanScore > 5 || computerScore > 5 ) {
+        console.log("WOW")
+        if (!(playerInput === computerInput)){
+            switch (playerInput) {
+                case "rock":
+                    if(computerInput == "scissors"){
+                        playerScore ++;
+                        para.innerText = "You played ROCK, your opponent played SCISSORS. You WIN!";
+                    }
+                    else{
+                        computerScore ++;
+                        para.innerText = "You played ROCK, your opponent played PAPER. You LOSE!";
+                    }
+                    break
+                case "paper":
+                    if(computerInput == "rock"){
+                        playerScore ++;
+                        para.innerText = "You played PAPER, your opponent played ROCK. You WIN!";
+                    }
+                    else{
+                        computerScore ++;
+                        para.innerText = "You played PAPER, your opponent played SCISSORS. You LOSE!";
+                    }
+                    break
+                case "scissors":
+                    if(computerInput == "paper"){
+                        playerScore ++;
+                        para.innerText = "You played SCISSORS, your opponent played PAPER. You WIN!";
+                    }
+                    else{
+                        computerScore ++;
+                        para.innerText = "You played SCISSORS, your opponent played ROCK. You LOSE!";
+                    }
+                    break
+         }
+            
         
-    };
+        }
+        else{
+            para.innerText = "You both picked " + playerInput + " choose again"
 
-    
-
-    
-    
-
+        }
 
 
 
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+}}
