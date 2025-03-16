@@ -1,3 +1,5 @@
+//ts-worksheet
+
 const display = document.getElementById("display");
 const btnRock = document.getElementById("btn-rock");
 const btnPaper = document.getElementById("btn-paper");
@@ -6,9 +8,17 @@ const para = document.getElementById("para");
 const scoreContainer = document.getElementById("score-container");
 const humanScoreCounter = document.getElementById("human-score-counter");
 const computerScoreCounter = document.getElementById("computer-score-counter");
+const buttonContainer = document.getElementById("btn-container")
+const buttons = document.querySelectorAll("button")
+
 
 let humanScore = 0;
 let computerScore = 0;
+
+buttons.forEach(el => el.addEventListener("click", () => {
+    console.log("clicked")
+}))
+
 
 
 
@@ -32,7 +42,7 @@ const updateScore = () => {
 
 const playRound = () => {
     let computerInput = getComputerInput();
-    para.innerText = computerInput
+    para.innerText = ""
     
 }
 
@@ -50,12 +60,29 @@ const getComputerInput = () =>{
             break;
         
     };
+
+    
+
+    
+    
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
