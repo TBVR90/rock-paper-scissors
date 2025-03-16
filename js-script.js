@@ -68,6 +68,9 @@ function gameOver(playerScore, computerScore) {
 
 function newGame() {
     btnPaper.innerText = "Paper";
+    btnScissors.innerText = "Scissor";
+    btnRock.innerText = "Rock";
+    btnPaper.style.visibility = "visible"
     btnScissors.style.visibility = "visible";
     btnRock.style.visibility = "visible";
     para.innerText = "Pick: Rock, Paper or Scissors";
